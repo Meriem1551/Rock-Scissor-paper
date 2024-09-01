@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    box-sizing: border-box;
+    background-color: black;
+    display: grid;
+    justify-content: center;
+     text-align: center;
+}
+button{
+    font-size: 180px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 100%;
+}
+h1{
+    color: rgb(248, 211, 25);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 50px;
+}
+.gameCard{
+    display: flex;
+    gap: 100px;
+}
+#replay{
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    color: rgb(248, 211, 25);
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 0%;
+    margin-top: 20px;
+    padding: 10px;
+}
+#resultCard{
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    color: black;
+    background-color: rgb(248, 211, 25);
+    border-radius: 20px;
+    padding: 50px;
+    position: absolute;
+    top: 200px;
+    left: 250px;
+    visibility: hidden;
+}

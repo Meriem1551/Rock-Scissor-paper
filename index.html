@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Scissor Paper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Let's play</h1>
+    <div class="gameCard">
+    <button 
+        onclick="pickComputerChoice();
+            let result = '';
+            if(computerChoice == 'rock'){
+                result = 'tie.';
+            }
+            else if(computerChoice == 'scissor'){
+                result = 'you win.';
+            }
+            else{
+                result = 'you lose.';
+            };
+            showResult('Rock', result);
+        ">✊</button>
+    <button onclick="pickComputerChoice();
+            if(computerChoice == 'rock'){
+                result = 'you lose.';
+            }
+            else if(computerChoice == 'scissor'){
+                result = 'tie.';
+            }
+            else{
+                result = 'you win.';
+            };
+            showResult('scissor', result);
+    ">✌️</button>
+    <button onclick="pickComputerChoice();
+            if(computerChoice == 'rock'){
+                result = 'you win.';
+            }
+            else if(computerChoice == 'scissor'){
+                result = 'you lose.';
+            }
+            else{
+                result = 'tie.';
+            };
+            showResult('paper', result);
+    ">✋</button>
+    </div>
+    <div id="resultCard"></div>
+    <script src="app.js"></script>
+</body>
+</html>
