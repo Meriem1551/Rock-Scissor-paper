@@ -1,26 +1,92 @@
-let computerChoice = '';
-let resultCard = document.getElementById('resultCard');
+let score = {
+    wins: 0,
+    losses : 0,
+    ties:0
+};
+
+function resetScore(){
+
+    score.wins= 0,
+    score.losses = 0,
+    score.ties=0
+    document.getElementById('result_card').innerHTML = `
+    <p>
+    Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}
+    </p>`
+};
+
+
 function pickComputerChoice(){
+    let computerChoice = '';
     let randomNum  = Math.random();
     if(randomNum >= 0 && randomNum <= 1/3){
         computerChoice = 'rock';
     }
     else if(randomNum >= 1/3 && randomNum <= 2/3){
-        computerChoice = 'scissor';
-    }
-    else{
         computerChoice = 'paper';
     }
+    else{
+        computerChoice = 'scissor';
+    }
+    return computerChoice;
 }
-function showResult(yourChoice, result){
-    resultCard.style.visibility = 'visible' 
-    resultCard.innerHTML = `
-        <h3>You choosed ${yourChoice}, Computer choose ${computerChoice}. ${result}</h3>
-        <button onclick="hideResult()" id="replay">Replay</button>
-    `
-    document.querySelector('main').style.opacity = '0.7'
+
+function showResult(yourChoice, computerChoice, result){
+    if (result == 'you win.'){
+        score.wins++;
+    }
+    else if(result == 'you lose.'){
+        score.losses++;
+    }
+    else{
+        score.ties++;
+    }
+    document.getElementById('result_card').innerHTML = `
+    <p>you choose ${yourChoice}, computer chooses ${computerChoice}, ${result}</p><br>
+    <p>
+    Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}
+    <button onclick="resetScore()" id="reset">Reset</button>
+    </p>
+    `;
 }
-function hideResult(){
-    resultCard.style.visibility = 'hidden';
-    document.querySelector('main').style.opacity = '1'
+
+function playGame(game){
+    let computerChoice = pickComputerChoice();
+    let result = '';
+    if(game == 'rock'){
+        if(computerChoice == 'rock')
+            result = 'tie.';
+        else if(computerChoice == 'paper'){
+            result = 'you loss.';
+        }
+        else{
+            result = 'you win.';
+        }
+    }
+    else if(game == 'paper'){
+        if(computerChoice == 'rock')
+            result = 'you win.';
+        else if(computerChoice == 'paper'){
+            result = 'tie.';
+        }
+        else{
+            result = 'you lose.';
+        }
+    }
+    else{
+        if(computerChoice == 'rock')
+            result = 'you lose.';
+        else if(computerChoice == 'paper'){
+            result = 'you win.';
+        }
+        else{
+            result = 'tie.';
+        }
+    };
+    showResult(game,computerChoice, result);
 }
+
+
+
+
+

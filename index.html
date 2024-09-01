@@ -10,47 +10,13 @@
     <main>
         <h1>Let's play</h1>
         <div id="gameCard">
-        <button 
-            onclick="pickComputerChoice();
-                let result = '';
-                if(computerChoice == 'rock'){
-                    result = 'tie.';
-                }
-                else if(computerChoice == 'scissor'){
-                    result = 'you win.';
-                }
-                else{
-                    result = 'you lose.';
-                };
-                showResult('Rock', result);
-            ">✊</button>
-        <button onclick="pickComputerChoice();
-                if(computerChoice == 'rock'){
-                    result = 'you lose.';
-                }
-                else if(computerChoice == 'scissor'){
-                    result = 'tie.';
-                }
-                else{
-                    result = 'you win.';
-                };
-                showResult('scissor', result);
-        ">✌️</button>
-        <button onclick="pickComputerChoice();
-                if(computerChoice == 'rock'){
-                    result = 'you win.';
-                }
-                else if(computerChoice == 'scissor'){
-                    result = 'you lose.';
-                }
-                else{
-                    result = 'tie.';
-                };
-                showResult('paper', result);
-        ">✋</button>
+            <button onclick="playGame('rock');">✊</button>
+            <button onclick="playGame('paper');">✋</button>
+            <button onclick="playGame('scissor');">✌️</button>
+        </div>
+        <div id="result_card">
         </div>
     </main>
-    <div id="resultCard"></div>
     <script src="app.js"></script>
 </body>
 </html>
