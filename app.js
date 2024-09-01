@@ -18,7 +18,9 @@ function showResult(yourChoice, result){
         <h3>You choosed ${yourChoice}, Computer choose ${computerChoice}. ${result}</h3>
         <button onclick="hideResult()" id="replay">Replay</button>
     `
+    document.querySelector('main').style.opacity = '0.7'
 }
 function hideResult(){
     resultCard.style.visibility = 'hidden';
+    document.querySelector('main').style.opacity = '1'
 }
