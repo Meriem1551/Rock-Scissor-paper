@@ -1,8 +1,4 @@
-let score = {
-    wins: 0,
-    losses : 0,
-    ties:0
-};
+let score = JSON.parse(localStorage.getItem('score'))
 
 function resetScore(){
 
@@ -14,7 +10,6 @@ function resetScore(){
     Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}
     </p>`
 };
-
 
 function pickComputerChoice(){
     let computerChoice = '';
@@ -41,6 +36,7 @@ function showResult(yourChoice, computerChoice, result){
     else{
         score.ties++;
     }
+    localStorage.setItem('score', JSON.stringify(score));
     document.getElementById('result_card').innerHTML = `
     <p>you choose ${yourChoice}, computer chooses ${computerChoice}, ${result}</p><br>
     <p>
