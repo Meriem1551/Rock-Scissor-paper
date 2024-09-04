@@ -6,9 +6,8 @@ let score = JSON.parse(localStorage.getItem('score'))|| {
 let interval;
 let isAutoPlay = false;
 function autoPlay(){
-    console.log("AutoPlay function called");
     if(!isAutoPlay){
-        interval = setInterval(function (){
+        interval = setInterval(() => {
             let choice = pickComputerChoice();
             playGame(choice);
         }, 2000);
