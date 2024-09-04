@@ -3,17 +3,32 @@ let score = JSON.parse(localStorage.getItem('score'))|| {
     losses:0,
     ties:0
 };
-
+let interval;
+let isAutoPlay = false;
+function autoPlay(){
+    console.log("AutoPlay function called");
+    if(!isAutoPlay){
+        interval = setInterval(function (){
+            let choice = pickComputerChoice();
+            playGame(choice);
+        }, 2000);
+        isAutoPlay = true;
+    }
+    else{
+        clearInterval(interval);
+        isAutoPlay=false;
+    }
+}
 function resetScore(){
 
     score.wins= 0,
     score.losses = 0,
     score.ties=0
     localStorage.removeItem('score');
-    document.getElementById('result_card').innerHTML = `
-    <p>
-    Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}
-    </p>`
+    document.getElementById('wins').innerHTML = score.wins;
+    document.getElementById('losses').innerHTML = score.losses;
+    document.getElementById('ties').innerHTML = score.ties;
+    document.getElementById('result').innerText= ``;
 };
 
 function pickComputerChoice(){
@@ -42,14 +57,15 @@ function showResult(yourChoice, computerChoice, result){
         score.ties++;
     }
     localStorage.setItem('score', JSON.stringify(score));
-    document.getElementById('result_card').innerHTML = `
-    <h2>you choose ${yourChoice}, computer chooses ${computerChoice}, ${result}</h2><br>
-    <p>
-    Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}
-    <button onclick="resetScore()" id="reset">Reset</button>
-    </p>
-    `;
+    document.getElementById('wins').innerHTML = score.wins;
+    document.getElementById('losses').innerHTML = score.losses;
+    document.getElementById('ties').innerHTML = score.ties;
+    if(result!==''){ 
+        document.getElementById('result').innerText= `you choose ${yourChoice}, computer chooses ${computerChoice}, ${result}`
+    }
 }
+
+showResult('', '', '');
 
 function playGame(game){
     let computerChoice = pickComputerChoice();

@@ -15,6 +15,10 @@
             <button onclick="playGame('scissor');">✌️</button>
         </div>
         <div id="result_card">
+            <h2 id="result"></h2>
+            <p>Wins: <span id="wins"></span>, Losses: <span id="losses"></span>, Ties: <span id="ties"></span></p>
+            <button onclick="resetScore()" class="button">Reset</button>
+            <button onclick="autoPlay()" class="button">Auto Play</button>
         </div>
     </main>
     <script src="app.js"></script>

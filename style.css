@@ -26,6 +26,8 @@ h1{
 h2{
     color: white;
     font-family: 'Courier New', Courier, monospace;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 #gameCard{
     display: flex;
@@ -38,7 +40,7 @@ h2{
     font-size: 20px;
     margin-top: 30px;
 }
-#reset{
+.button{
     font-size: 20px;
     background-color: transparent;
     border: 2px solid white;
@@ -46,4 +48,7 @@ h2{
     padding: 10px;
     color: white;
     margin-left: 10px;
+}
+p{
+    margin-bottom: 20px;
 }
